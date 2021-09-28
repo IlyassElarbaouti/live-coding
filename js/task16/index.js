@@ -1,11 +1,12 @@
 /* eslint-disable max-classes-per-file, no-console */
 
 // put your code here
-export const Sportsman = class{
+ export const Sportsman = class{
     constructor(name){
         this.name=name;
     }
     run(){
+      console.log(this)
         console.log(`${this.name} is running`)
     }
 }
@@ -19,4 +20,6 @@ export class Swimmer extends Sportsman {
       console.log(`${this.name} is swimming ${this.style}`)
   }
 }
-
+// const newSwimmer = new Swimmer('John','style');
+// newSwimmer.run()
+// console.log(newSwimmer)
