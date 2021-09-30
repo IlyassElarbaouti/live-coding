@@ -1,11 +1,18 @@
-const emailInput = document.getElementById('email');
-const nameInput = document.getElementById('name');
-const passwordInput = document.getElementById('password');
-const loginForm = document.forms[0];
+const loginForm = document.querySelector('.login-form');
 const submitBtn = document.querySelector('.submit-button');
 const errorText = document.querySelector('.error-text');
 const baseUrl = 'https://6141977c357db50017b3db7a.mockapi.io/api/v1/users2/'
 
+
+const validateFormHandler = () =>{
+  if(loginForm.reportValidity()){
+    submitBtn.removeAttribute('disabled')
+  }
+  else{
+    submitBtn.setAttribute('disabled',true)
+  }
+}
+loginForm.addEventListener('input',validateFormHandler)
 //1
 // const user = {
 //   email: emailInput.value,
@@ -22,7 +29,7 @@ const user = Object.fromEntries(new FormData(loginForm));
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(user),
   }).then(response=> response.json())
-  .then(body=>alert(body))
+  .then(body=>alert(JSON.stringify(body)))
 
 
     // eslint-disable-next-line no-return-assign
