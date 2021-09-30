@@ -30,6 +30,7 @@ const user = Object.fromEntries(new FormData(loginForm));
     body: JSON.stringify(user),
   }).then(response=> response.json())
   .then(body=>alert(JSON.stringify(body)))
+  .then(loginForm.reset())
 
 
     // eslint-disable-next-line no-return-assign
